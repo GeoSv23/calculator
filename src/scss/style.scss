@@ -26,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 300px;
+  width: 300px;
   height: 300px;
   margin: 140px auto;
   background-color: #fff;
@@ -61,6 +61,7 @@ body {
   height: 20%;
   background-color: rgb(255, 255, 255);
   color: rgba(0, 0, 0, 0.824);
+  font-size: x-large;
   &:hover {
     background-color: orange;
     color: black;
@@ -80,5 +81,22 @@ body {
     background-color: rgb(214, 0, 0);
     color: rgb(244, 244, 244);
     border: 0.01px solid black;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  body {
+    margin: 0;
+    padding: 20px;
+  }
+  .calculator {
+    width: 100%;
+    height: 100%;
+    max-height: 80%;
+  }
+
+  .display {
+    height: 40%;
+    font-size: xx-large;
   }
 }

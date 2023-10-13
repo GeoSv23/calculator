@@ -83,8 +83,6 @@ for (let i = 0; i < buttons.length; i++) {
     }
 
     if (equalButtonPush) {
-      // console.log("operand1:", operand1);
-      // console.log("operand2:", operand2);
       switch (operator) {
         case "+":
           result = parseInt(operand1) + parseInt(operand2);
@@ -104,19 +102,21 @@ for (let i = 0; i < buttons.length; i++) {
         case "/":
           result = parseInt(operand1) / parseInt(operand2);
           equalButtonPush = false;
-
           break;
-
+        case "%":
+          result = parseInt(operand1) / 100;
+          equalButtonPush = false;
+          break;
         default:
           result = "Неподдерживаемый оператор";
       }
       operand2 = "";
       operator = "";
-      console.log(operand1);
-      console.log(operand2);
+      // console.log(operand1);
+      // console.log(operand2);
 
-      console.log(operator);
-      console.log(result);
+      // console.log(operator);
+      // console.log(result);
       equalButtonPush = false;
       input.value = result;
       operand1 = result;
