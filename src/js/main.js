@@ -23,6 +23,7 @@ let buttons = [
   { text: "=", class: "eqauls" },
 ];
 let equalButtonPush = false;
+let delButtonPush = false;
 let operand1 = "";
 let operand2 = "";
 let operator = "";
@@ -67,9 +68,18 @@ for (let i = 0; i < buttons.length; i++) {
 
       input.value = "";
     } else if (button.innerHTML === "del") {
-      let InputValue = input.value;
-      InputValue = InputValue.slice(0, -4);
-      input.value = InputValue;
+      delButtonPush = true;
+      if (delButtonPush && operator === "") {
+        let InputValue = operand1;
+        InputValue = InputValue.slice(0, -4);
+        operand1 = InputValue;
+        input.value = operand1;
+      } else if (delButtonPush && operator !== "") {
+        let InputValue = operand2;
+        InputValue = InputValue.slice(0, -4);
+        operand2 = InputValue;
+        input.value = `${operand1}${operator}${InputValue}`;
+      }
     }
 
     if (equalButtonPush) {
