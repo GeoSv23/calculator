@@ -1,26 +1,51 @@
-body {
-  background-color: burlywood;
+@import "src/scss/nullstyle.scss";
+
+@font-face {
+  font-family: "Gilroy";
+  src: local("Gilroy Regular"), local("Gilroy-Regular"),
+    url(/public/fonts/font_style/Gilroy-Regular.woff2) format("woff2");
+  font-weight: 900;
 }
 
-.main {
+body {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(233, 171, 113);
+  background: linear-gradient(
+    90deg,
+    rgba(233, 171, 113, 1) 0%,
+    rgba(66, 192, 110, 1) 48%,
+    rgba(201, 238, 59, 1) 100%
+  );
+}
+
+.calculator {
+  font-family: "Gilroy";
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 300px;
   height: 300px;
-  margin: 50px auto;
-  background-color: gray;
+  margin: 140px auto;
+  background-color: #fff;
   border-radius: 10px;
   padding: 15px;
+  &:hover {
+    box-shadow: 0px 0px 142px #fff;
+  }
 }
 
 .display {
+  padding: 20px;
   width: 100%;
   height: 50px;
   box-sizing: border-box;
   margin-bottom: 20px;
-  border-radius: 10px;
-  background-color: lightskyblue;
+
+  background-color: rgb(255, 255, 255);
+  border: 0.1px solid rgba(128, 128, 128, 0.352);
   border-radius: 10px;
 }
 
@@ -31,18 +56,29 @@ body {
 }
 
 .button {
-  border-radius: 20px;
+  border-radius: 5px;
   width: 25%;
   height: 20%;
-  background-color: black;
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgba(0, 0, 0, 0.372);
   &:hover {
     background-color: orange;
     color: black;
+    border: 0.01px solid black;
   }
 }
 
 .operator {
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   color: orange;
+}
+
+.eqauls {
+  background-color: orange;
+  color: black;
+  &:hover {
+    background-color: rgb(214, 0, 0);
+    color: rgb(244, 244, 244);
+    border: 0.01px solid black;
+  }
 }

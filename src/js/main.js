@@ -1,8 +1,8 @@
 const boxForButtons = document.querySelector(".buttonsHolder");
 
 let buttons = [
-  { text: "AC", class: "operator" },
-  { text: "del", class: "operator" },
+  { text: "AC", class: "delAll" },
+  { text: "del", class: "del" },
   { text: "%", class: "operator" },
   { text: "/", class: "operator" },
   { text: 7, class: "number" },
@@ -54,6 +54,9 @@ for (let i = 0; i < buttons.length; i++) {
     input.value += button.innerHTML;
 
     if (button.innerHTML === "=") {
+      if (result != 0) {
+        operand1 == result;
+      }
       equalButtonPush = true;
     } else if (button.innerHTML === "AC") {
       operand1 = "";
@@ -72,25 +75,31 @@ for (let i = 0; i < buttons.length; i++) {
     if (equalButtonPush) {
       // console.log("operand1:", operand1);
       // console.log("operand2:", operand2);
-      result;
       switch (operator) {
         case "+":
           result = parseInt(operand1) + parseInt(operand2);
+          equalButtonPush = false;
+          console.log(equalButtonPush);
           break;
         case "-":
           result = parseInt(operand1) - parseInt(operand2);
+          equalButtonPush = false;
+
           break;
         case "X":
           result = parseInt(operand1) * parseInt(operand2);
+          equalButtonPush = false;
+
           break;
         case "/":
           result = parseInt(operand1) / parseInt(operand2);
+          equalButtonPush = false;
+
           break;
 
         default:
           result = "Неподдерживаемый оператор";
       }
-      operand1 = "";
       operand2 = "";
       operator = "";
       console.log(operand1);
@@ -100,7 +109,7 @@ for (let i = 0; i < buttons.length; i++) {
       console.log(result);
       equalButtonPush = false;
       input.value = result;
-      result = operand1;
+      operand1 = result;
     }
   });
 
